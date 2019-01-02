@@ -6,7 +6,7 @@ class unifi::install (
       'redhat': {
         yumrepo { 'unifi':
           baseurl => 'http://dl.marmotte.net/rpms/redhat/el7/x86_64/unifi-controller-5.8.24-1.el7/',
-          descr   => 'repo',
+          descr   => 'unifi repo',
           enabled => '1',
         }
         package { 'unifi-controller-5.8.24-1.el7.x86_64.rpm':
