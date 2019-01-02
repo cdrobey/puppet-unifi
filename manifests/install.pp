@@ -16,10 +16,11 @@ class unifi::install (
           require => Package['java-1.8.0-openjdk-headless'],
         }
 
-        #package { 'unifi-controller-5.8.24-1.el7.x86_64.rpm':
-        #  ensure  => present,
-        #  require => Yumrepo['unifi'],
-        #}
+        package { 'unifi-controller-5.8.24-1.el7.x86_64.rpm':
+          ensure   => present,
+          provider => rpm,
+          source   => 'http://dl.marmotte.net/rpms/redhat/el7/x86_64/unifi-controller-5.8.24-1.el7/unifi-controller-5.8.24-1.el7.x86_64.rpm',
+        }
       }
       default: {
         apt::key { 'unifi':
