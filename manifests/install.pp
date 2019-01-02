@@ -13,13 +13,14 @@ class unifi::install (
         }
         package { 'mongodb-server':
           ensure  => present,
-          require => Package['java-1.8.0-openjdk-headless'],
+          require => Package['epel-release'],
         }
 
         package { 'unifi-controller-5.8.24-1.el7.x86_64.rpm':
           ensure   => present,
           provider => rpm,
           source   => 'http://dl.marmotte.net/rpms/redhat/el7/x86_64/unifi-controller-5.8.24-1.el7/unifi-controller-5.8.24-1.el7.x86_64.rpm',
+          require  => Package['java-1.8.0-openjdk-headless', 'mongodb-server'],
         }
       }
       default: {
